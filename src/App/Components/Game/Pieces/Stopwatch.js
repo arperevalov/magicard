@@ -2,7 +2,7 @@ import React from 'react';
 import { ControlsPause, ControlsStop } from './components/Controls';
 import Header from './components/Header';
 
-let Stopwatch = () => {
+let Stopwatch = (props) => {
     return <div className='piece piece__stopwatch'>
         <Header title='Stopwatch'/>
         <div className='content'>

@@ -2,7 +2,7 @@ import React from 'react';
 import { ControlsPlay } from './components/Controls';
 import Header from './components/Header';
 
-let Timer = () => {
+let Timer = (props) => {
     return <div className='piece piece__timer'>
         <Header title='Timer'/>
         <div className='content'>

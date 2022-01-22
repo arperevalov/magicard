@@ -49,6 +49,97 @@
                 }
             }
         }
+
+        &__playerStatus {
+            .content {
+                display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+                padding: 2px 4px;
+                font-weight: 600;
+            }
+        }
+
+        &__helpers {
+
+            .content{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .helper {
+                display: flex;
+                gap: 8px;
+                text-decoration: none;
+                color: $text;
+                margin-bottom: 12px;
+                font-weight: 600;
+
+                &__icon {
+                    opacity: .5;
+                }
+                
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .info {
+
+                &__item {
+                    margin-bottom: 8px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    .title, .value {
+                        font-size: 12px;
+                        font-weight: 600;
+                        display: block;
+                        color: $text;
+                    }
+
+                    .title {
+                        opacity: .5;
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+        }
+    }
+
+    .stats {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: grid;
+        gap: 8px;
+        margin-bottom: 16px;
+
+        .stat {
+            display: flex;
+            justify-content: space-between;
+
+            &__name, &__value {
+                font-size: 12px;
+                font-weight: 600;
+                display: block;
+                color: $text;
+            }
+
+            &__name {
+                opacity: .5;
+            }
+        }
     }
 
     .controls {

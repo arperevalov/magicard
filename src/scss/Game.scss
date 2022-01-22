@@ -1,0 +1,19 @@
+.game {
+    .gameControls {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        &__pauseGame, &__helpers {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        &__pauseGame {
+            background-color: transparent;
+            border: none;
+            padding: 0;
+        }
+    }
+}

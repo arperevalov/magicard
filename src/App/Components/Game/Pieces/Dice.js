@@ -2,7 +2,7 @@ import React from 'react';
 import {ControlsPlay} from './components/Controls';
 import Header from './components/Header';
 
-let Dice = () => {
+let Dice = (props) => {
     return <div className='piece piece__dice'>
         <Header title='Dice'/>
         <div className='content'>

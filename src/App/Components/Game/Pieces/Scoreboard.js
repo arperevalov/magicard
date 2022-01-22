@@ -2,7 +2,7 @@ import React from 'react';
 import User from './../../User/User';
 import Header from './components/Header';
 
-let Scoreboard = () => {
+let Scoreboard = (props) => {
     return <div className='piece piece__scoreboard'>
         <Header title='Scoreboard'/>
         <div className='content'>

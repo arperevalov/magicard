@@ -2,7 +2,7 @@ import React from 'react';
 import User from './../../User/User';
 import Header from './components/Header';
 
-let Turner = () => {
+let Turner = (props) => {
     return <div className='piece piece__turner'>
         <Header title='Turner'/>
         <div className='content'>
