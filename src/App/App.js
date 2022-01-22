@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import Game from './Components/Game';
+import Game from './Components/Game/Game';
 import Header from './components/Header';
 import Home from './Components/Home';
 import Nav from './Components/Nav';
