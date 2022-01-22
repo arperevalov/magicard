@@ -12,7 +12,7 @@ let Dice = (props) => {
                 viewBox="0 0 98 96"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_77_702)">
+                <g clipPath="url(#clip0_77_702)">
                     <g filter="url(#filter0_d_77_702)">
                         <rect
                             x="-0.00012207"
@@ -78,8 +78,8 @@ let Dice = (props) => {
                         width="132.569"
                         height="132.569"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feColorMatrix
                             in="SourceAlpha"
                             type="matrix"
@@ -108,8 +108,8 @@ let Dice = (props) => {
                         width="145.634"
                         height="145.634"
                         filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                        colorInterpolationFilters="sRGB">
+                        <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feColorMatrix
                             in="SourceAlpha"
                             type="matrix"

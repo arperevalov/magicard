@@ -1,6 +1,17 @@
 import React from 'react';
 import Header from './components/Header';
 
+let params = (props) => {
+    props.player.params.map((i) => {
+        return (
+            <li className='stat'>
+                <span className='stat__name'>{i.param}</span>
+                <span className='stat__value'>{i.value}</span>
+            </li>
+        )
+    })
+}
+
 let PlayerStatus = (props) => {
     return <div className='piece piece__playerStatus'>
         <Header title='Player status'/>

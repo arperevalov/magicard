@@ -7,7 +7,10 @@ import Stopwatch from './Pieces/Stopwatch';
 import Timer from './Pieces/Timer';
 import Turner from './Pieces/Turner';
 
-let Game = () => {
+
+
+
+let Game = (props) => {
     return <div className='game'>
         <h1 className='h1'>Bill’s Birthday!</h1>
         <div className='gameControls'>
@@ -35,15 +38,15 @@ let Game = () => {
                 Helpers</a>
         </div>
         <div className='pieces'>
-            <Turner/>
+            <Turner players={props.store.users}/>
             <div className='line'>
             <Timer/>
             <Stopwatch/>
             </div>
-            <Scoreboard/>
+            <Scoreboard players={props.store.users}/>
             <div className='line'>
             <Dice/>
-            <PlayerStatus/>
+            <PlayerStatus players={props.store.users}/>
             </div>
             <Helpers/>
             
