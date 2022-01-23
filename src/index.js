@@ -9,7 +9,7 @@ import './scss/App.scss'
 
 const renderEntireTree = (store) => ReactDOM.render(
     <BrowserRouter>
-        <App store={store.getState()}/>
+        <App store={store} dispatch={store.dispatch}/>
     </BrowserRouter>,
     document.getElementById(
         "app"
@@ -18,4 +18,6 @@ const renderEntireTree = (store) => ReactDOM.render(
 
 renderEntireTree(store);
 
-store.subscribe(renderEntireTree)
+store.subscribe(()=>{
+    console.log(store.getState())
+    renderEntireTree(store)})

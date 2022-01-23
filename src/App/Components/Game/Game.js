@@ -38,7 +38,7 @@ let Game = (props) => {
                 Helpers</a>
         </div>
         <div className='pieces'>
-            <Turner players={props.store.users}/>
+            <Turner state={props.store} dispatch={props.dispatch} />
             <div className='line'>
             <Timer/>
             <Stopwatch/>

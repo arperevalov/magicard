@@ -15,7 +15,7 @@ export default function App(props) {
                 <div className='inpage'>
                     <Routes>
                         <Route exact path={"/"} element={<Home/>}/>
-                        <Route path="/game" element={<Game store={props.store}/>}/>
+                        <Route path="/game" element={<Game store={props.store.getState()} dispatch={props.dispatch}/>}/>
                     </Routes>
                 </div>
                 <Nav/>
