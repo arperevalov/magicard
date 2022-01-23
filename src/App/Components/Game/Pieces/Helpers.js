@@ -27,6 +27,16 @@ Actions History</a>
                 Add tool</a>
             </div>
             <div className='info'>
+                
+                <div className='info__item'>
+                    <span className='title'>Rounds</span>
+                    <span className='value'>{props.rounds}</span>
+                </div>
+
+                <div className='info__item'>
+                    <span className='title'>Turns</span>
+                    <span className='value'>{props.turns}</span>
+                </div>
                 <div className='info__item'>
                     <span className='title'>Total time</span>
                     <span className='value'>49 mins</span>

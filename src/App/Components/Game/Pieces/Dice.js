@@ -140,7 +140,6 @@ let Dice = (props) => {
                     </clipPath>
                 </defs>
             </svg>
-
         </div>
     </div>
 }

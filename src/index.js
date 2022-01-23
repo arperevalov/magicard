@@ -19,5 +19,4 @@ const renderEntireTree = (store) => ReactDOM.render(
 renderEntireTree(store);
 
 store.subscribe(()=>{
-    console.log(store.getState())
     renderEntireTree(store)})

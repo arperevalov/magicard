@@ -34,6 +34,13 @@
             padding: 12px;
         }
 
+        &__turner {
+            button {
+                line-height: 100%;
+                align-self: flex-end;
+            }
+        }
+
         &__timer, &__stopwatch, &__dice {
             .content {
                 display: flex;
@@ -138,6 +145,7 @@
 
             &__name {
                 opacity: .5;
+                text-transform: capitalize;
             }
         }
     }

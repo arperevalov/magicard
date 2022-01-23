@@ -40,15 +40,15 @@ let Game = (props) => {
         <div className='pieces'>
             <Turner state={props.store} dispatch={props.dispatch} />
             <div className='line'>
-            <Timer/>
-            <Stopwatch/>
+            <PlayerStatus players={props.store.users}/>
+            <Dice/>
             </div>
             <Scoreboard players={props.store.users}/>
             <div className='line'>
-            <Dice/>
-            <PlayerStatus players={props.store.users}/>
+            <Timer/>
+            <Stopwatch/>
             </div>
-            <Helpers/>
+            <Helpers rounds={props.store.rounds} turns={props.store.turns}/>
             
         </div>
     </div>
