@@ -38,9 +38,9 @@ let Game = (props) => {
                 Helpers</a>
         </div>
         <div className='pieces'>
-            <Turner state={props.store} dispatch={props.dispatch} />
+            <PlayerStatus store={props.store} dispatch={props.dispatch}/>
             <div className='line'>
-            <PlayerStatus players={props.store.users}/>
+            <Turner state={props.store} dispatch={props.dispatch}/>
             <Dice/>
             </div>
             <Scoreboard players={props.store.users}/>
@@ -48,7 +48,7 @@ let Game = (props) => {
             <Timer/>
             <Stopwatch/>
             </div>
-            <Helpers rounds={props.store.rounds} turns={props.store.turns}/>
+            <Helpers/>
             
         </div>
     </div>

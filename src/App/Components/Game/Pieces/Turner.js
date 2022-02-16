@@ -1,5 +1,5 @@
 import React from 'react';
-import { changeTurnCreator } from '../../Redux/reducers/userReducer';
+import { changeTurnCreator } from '../../../Redux/reducers/userReducer';
 import User from './../../User/User';
 import Header from './components/Header';
 
@@ -12,16 +12,6 @@ let Turner = (props) => {
                 return false
             }
         })
-
-    let defineNext = props.state.users.map((user, index, array) => {
-        if (user.isTurn && index < array.length-1) {
-            return (<User name={array[index+1].name} tag={array[index+1].tag} key={array[index+1].id}/>)
-        } else if (user.isTurn && index >= array.length-1) {
-            return (<User name={array[0].name} tag={array[0].tag} key={array[0].id}/>)
-        } else {
-            return false
-        }
-    })
     
     let changeTurn = () =>{
         props.dispatch(changeTurnCreator())
@@ -30,13 +20,30 @@ let Turner = (props) => {
     return <div className='piece piece__turner'>
         <Header title='Turner'/>
         <div className='content'>
-            {defineTurn}
-            <span className='turn'>Now it's your turn!</span>
-            <button onClick={changeTurn}>Change turn</button>
+            <div className='info'>
+                <div className='info__item'>
+                    <span className='info__name'>Rounds</span>
+                    <span className='info__value'>{props.state.rounds}</span>
+                </div>
+
+                <div className='info__item'>
+                    <span className='info__name'>Turns</span>
+                    <span className='info__value'>{props.state.turns}</span>
+                </div>
+            </div>
             <hr/>
-            {defineNext}
-            <span className='turn'>Is next!</span>
+            <div className='turn'>
+                <span className='turn__name'>Current player</span>
+                <User user={props.state.users[props.state.currentPlayer]}/>
+            </div>
+            <hr/>
+            <div className='turn'>
+                <span className='turn__name'>Next player</span>
+                <User user={props.state.users[props.state.nextPlayer]}/>
+            </div>
+            
         </div>
+        <button className='piece__turner turner__button h2' onClick={changeTurn}>Change turn</button>
     </div>
 }
 

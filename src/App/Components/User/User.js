@@ -1,38 +1,38 @@
 import React from 'react';
 import Avatar from './Avatar';
 
-function NameToLetters(name) {
-
-    let newname = name.split('');
-    return newname[0].toUpperCase()
-}
-
-let userTag = (tag) => {
-    if (tag) {
-        return <span className='user__tag'>{tag}</span>
-    } else {
-        return false
-    }
-}
-
-let userPoints = (points) => {
-    if (points) {
-        return <span className='user__points'>{points}</span>
-    } else {
-        return false
-    }
-}
-
 let User = (props) => {
+
+    function NameToLetters(name) {
+        let newname = name.split('');
+        return newname[0].toUpperCase()
+    }
+
+    let userTag = () => {
+        if (props.user.tag) {
+            return <span className='user__tag'>{props.user.tag}</span>
+        } else {
+            return false
+        }
+    }
+
+    let userPoints = () => {
+        if (props.points) {
+            return <span className='user__points'>{props.points}</span>
+        } else {
+            return
+        }
+    }
+
     return <div className='user'>
         <div className='user__info'>
-            <Avatar letter={NameToLetters(props.name)}/>
+            <Avatar letter={NameToLetters(props.user.name)}/>
             <span className='user__name'>
-                {props.name}
+                {props.user.name}
             </span>
-            {userTag(props.tag)}
+            {userTag()}
         </div>
-        {userPoints(props.points)}
+        {userPoints()}
     </div>
 }
 

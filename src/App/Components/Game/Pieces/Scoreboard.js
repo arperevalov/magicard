@@ -6,7 +6,7 @@ import Header from './components/Header';
 
 let Scoreboard = (props) => {
 
-    let players = props.players.map(i => {return (<User name={i.name} points={i.params.gold+i.params.hp-i.params.deaths} tag={i.tag} key={i.id}/>)})
+    let players = props.players.map(i => {return (<User user={i} points={i.params.Roads + i.params.Villages + i.params.Cities + i.params.Warriors} key={i.id}/>)})
 
     return <div className='piece piece__scoreboard'>
         <Header title='Scoreboard'/>
