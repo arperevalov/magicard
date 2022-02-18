@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const CHANGE_TURN = 'CHANGE_TURN',
 INCREMENT_PARAM = 'INCREMENT_PARAM',
 DECREMENT_PARAM = 'DECREMENT_PARAM';
@@ -76,13 +78,13 @@ export let userReducer = (state = defaultVal, action) => {
                     state.turns++
                 }
 
-                return state;
+                return {...state};
             }
             break;
         case INCREMENT_PARAM:
             {
                 state.users[state.currentPlayer].params[action.parameterIndex] ++
-                return state;
+                return _.cloneDeep(state);
             }
             break;
         case DECREMENT_PARAM:
@@ -90,7 +92,7 @@ export let userReducer = (state = defaultVal, action) => {
                 if (state.users[state.currentPlayer].params[action.parameterIndex] !== 0) {
                     state.users[state.currentPlayer].params[action.parameterIndex] --
                 }
-                return state;
+                return _.cloneDeep(state);
             }
             break;
         default:
@@ -105,6 +107,6 @@ export let userReducer = (state = defaultVal, action) => {
     }
 }
 
-export const changeTurnCreator = () => ({type: CHANGE_TURN, data: ''})
-export const incrementParam = (parameterIndex) => ({type: INCREMENT_PARAM, parameterIndex: parameterIndex})
-export const decrementParam = (parameterIndex) => ({type: DECREMENT_PARAM, parameterIndex: parameterIndex})
+export const changeTurnAC = () => ({type: CHANGE_TURN, data: ''})
+export const incrementParamAC = (parameterIndex) => ({type: INCREMENT_PARAM, parameterIndex: parameterIndex})
+export const decrementParamAC = (parameterIndex) => ({type: DECREMENT_PARAM, parameterIndex: parameterIndex})

@@ -1,11 +1,11 @@
 import React from 'react';
 import Dice from './Pieces/Dice';
 import Helpers from './Pieces/Helpers';
-import PlayerStatus from './Pieces/PlayerStatus';
-import Scoreboard from './Pieces/Scoreboard';
+import PlayerStatusContainer from './Pieces/PlayerStatus/PlayerStatusContainer';
+import ScoreboardContainer from './Pieces/Scoreboard/ScoreboardContainer';
 import Stopwatch from './Pieces/Stopwatch';
 import Timer from './Pieces/Timer';
-import Turner from './Pieces/Turner';
+import TurnerContainer from './Pieces/Turner/TurnerContainer';
 
 
 
@@ -38,12 +38,12 @@ let Game = (props) => {
                 Helpers</a>
         </div>
         <div className='pieces'>
-            <PlayerStatus store={props.store} dispatch={props.dispatch}/>
+            <PlayerStatusContainer/>
             <div className='line'>
-            <Turner state={props.store} dispatch={props.dispatch}/>
+            <TurnerContainer/>
             <Dice/>
             </div>
-            <Scoreboard players={props.store.users}/>
+            <ScoreboardContainer/>
             <div className='line'>
             <Timer/>
             <Stopwatch/>

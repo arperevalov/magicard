@@ -6,10 +6,13 @@ import { store } from './App/Redux/store';
 
 import 'normalize.css';
 import './scss/App.scss'
+import { Provider } from 'react-redux';
 
-const renderEntireTree = (store) => ReactDOM.render(
+const renderEntireTree = () => ReactDOM.render(
     <BrowserRouter>
-        <App store={store} dispatch={store.dispatch}/>
+        <Provider store={store}>
+            <App store={store} dispatch={store.dispatch}/>
+        </Provider>
     </BrowserRouter>,
     document.getElementById(
         "app"
