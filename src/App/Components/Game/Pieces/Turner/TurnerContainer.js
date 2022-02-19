@@ -1,16 +1,15 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { changeTurnAC } from '../../../../Redux/reducers/userReducer';
+import { changeTurnAC } from '../../../../Redux/reducers/gameReducer';
 import Turner from './Turner';
 
 
 let mapStateToProps = (store) => {
     return {
-        users: store.users,
-        currentPlayer : store.currentPlayer,
-        nextPlayer: store.nextPlayer,
-        rounds: store.rounds,
-        turns: store.turns
+        users: store.GamePage.users,
+        currentPlayer : store.GamePage.currentPlayer,
+        nextPlayer: store.GamePage.nextPlayer,
+        rounds: store.GamePage.rounds,
+        turns: store.GamePage.turns
     }
 }
 

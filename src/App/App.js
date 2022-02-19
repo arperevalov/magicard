@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
 import Game from './Components/Game/Game';
+import GameCreatorContainer from './Components/GameCreator/GameCreatorContainer';
 import Header from './components/Header';
 import Home from './Components/Home';
 import Nav from './Components/Nav';
@@ -15,7 +16,8 @@ export default function App(props) {
                 <div className='inpage'>
                     <Routes>
                         <Route exact path={"/"} element={<Home/>}/>
-                        <Route path="/game" element={<Game store={props.store.getState()} dispatch={props.dispatch}/>}/>
+                        <Route path="/game" element={<Game/>}/>
+                        <Route path="/newgame" element={<GameCreatorContainer/>}/>
                     </Routes>
                 </div>
                 <Nav/>

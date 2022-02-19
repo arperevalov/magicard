@@ -3,9 +3,16 @@ import _ from "lodash";
 const CHANGE_TURN = 'CHANGE_TURN',
 INCREMENT_PARAM = 'INCREMENT_PARAM',
 DECREMENT_PARAM = 'DECREMENT_PARAM',
-CHANGE_PARAM = 'CHANGE_PARAM';
+CHANGE_PARAM = 'CHANGE_PARAM',
+CHANGE_GAME_NAME = 'CHANGE_GAME_NAME',
+CHANGE_PIECE = 'CHANGE_PIECE'
 
 let defaultVal = {
+    settings:{
+        name: '',
+        pieces: [
+        ]
+    },
     users: [
         {
             id: 1,
@@ -17,8 +24,7 @@ let defaultVal = {
                 villages: 2,
                 cities: 1,
                 warriors: 2
-            },
-            totalPoints: 0
+            }
         }, {
             id: 2,
             name: 'Jennifer Carpenter',
@@ -29,8 +35,7 @@ let defaultVal = {
                 villages: 2,
                 cities: 0,
                 warriors: 1
-            },
-            totalPoints: 0
+            }
         }, {
             id: 3,
             name: 'Bill',
@@ -41,8 +46,7 @@ let defaultVal = {
                 villages: 1,
                 cities: 2,
                 warriors: 4
-            },
-            totalPoints: 0
+            }
         }, {
             id: 4,
             name: 'Claire Larsen',
@@ -53,8 +57,7 @@ let defaultVal = {
                 villages: 1,
                 cities: 0,
                 warriors: 2
-            },
-            totalPoints: 0
+            }
         }
     ],
     rounds: 0,
@@ -63,7 +66,7 @@ let defaultVal = {
     nextPlayer: 1
 }
 
-export let userReducer = (state = defaultVal, action) => {
+export let gameReducer = (state = defaultVal, action) => {
     switch (action.type) {
         case CHANGE_TURN:
             {
@@ -102,8 +105,34 @@ export let userReducer = (state = defaultVal, action) => {
             break;
         case CHANGE_PARAM:
             {
-                state.users[state.currentPlayer].params[action.parameterIndex] = parseInt(action.value);
+                if(action.value.length == 0) {
+                    state.users[state.currentPlayer].params[action.parameterIndex] = 0
+                } else {
+                    state.users[state.currentPlayer].params[action.parameterIndex] = parseInt(action.value)
+                };
                 return _.cloneDeep(state);
+            }
+            break;
+        case CHANGE_GAME_NAME:
+            {
+                state.settings.name = action.value;
+
+                return {...state,
+                settings: {...state.settings}}
+            }
+            break;
+        case CHANGE_PIECE:
+            {
+                //REFACTOR
+                if(action.value) {
+                    state.settings.pieces.push(action.name)
+                } else if(!action.value) {
+                    state.settings.pieces.splice(state.settings.pieces.indexOf(action.name), 1)
+                }
+
+                console.log(state.settings.pieces)
+                return {...state,
+                settings: {...state.settings}}
             }
             break;
         default:
@@ -122,3 +151,5 @@ export const changeTurnAC = () => ({type: CHANGE_TURN, data: ''})
 export const incrementParamAC = (parameterIndex) => ({type: INCREMENT_PARAM, parameterIndex: parameterIndex})
 export const decrementParamAC = (parameterIndex) => ({type: DECREMENT_PARAM, parameterIndex: parameterIndex})
 export const changeParamAC = (value, parameterIndex) => ({type: CHANGE_PARAM, value:value, parameterIndex:parameterIndex})
+export const changeGameNameValueAC = (value) => ({type: CHANGE_GAME_NAME, value:value})
+export const changePieceAC = (name, value) => ({type: CHANGE_PIECE, name: name, value:value})

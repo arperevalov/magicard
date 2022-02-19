@@ -1,13 +1,12 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import { changeParamAC, decrementParamAC, incrementParamAC } from '../../../../Redux/reducers/userReducer';
+import { changeParamAC, decrementParamAC, incrementParamAC } from '../../../../Redux/reducers/gameReducer';
 import PlayerStatus from './PlayerStatus';
 
 
 let mapStateToProps = (store) => {
     return {
-        currentPlayer: store.currentPlayer,
-        users: store.users
+        currentPlayer: store.GamePage.currentPlayer,
+        users: store.GamePage.users
     }
 }
 
