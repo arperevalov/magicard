@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { decrementParamAC, incrementParamAC } from '../../../../Redux/reducers/userReducer';
+import { changeParamAC, decrementParamAC, incrementParamAC } from '../../../../Redux/reducers/userReducer';
 import PlayerStatus from './PlayerStatus';
 
 
@@ -18,6 +18,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         incrementUserParam: (parameterIndex) => {
             dispatch(incrementParamAC(parameterIndex));
+        },
+        changeUserParam: (value, parameterIndex) => {
+            dispatch(changeParamAC(value, parameterIndex))
         }
     }
 }

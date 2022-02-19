@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import Scoreboard from './Scoreboard';
 
-
 let mapStateToProps = (store) => {
     return {
         users: store.users

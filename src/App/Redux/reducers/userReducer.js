@@ -2,7 +2,8 @@ import _ from "lodash";
 
 const CHANGE_TURN = 'CHANGE_TURN',
 INCREMENT_PARAM = 'INCREMENT_PARAM',
-DECREMENT_PARAM = 'DECREMENT_PARAM';
+DECREMENT_PARAM = 'DECREMENT_PARAM',
+CHANGE_PARAM = 'CHANGE_PARAM';
 
 let defaultVal = {
     users: [
@@ -12,44 +13,48 @@ let defaultVal = {
             tag: false,
             isTurn: true,
             params: {
-                Roads: 2,
-                Villages: 2,
-                Cities: 1,
-                Warriors: 2
-            }
+                roads: 2,
+                villages: 2,
+                cities: 1,
+                warriors: 2
+            },
+            totalPoints: 0
         }, {
             id: 2,
             name: 'Jennifer Carpenter',
             tag: false,
             isTurn: false,
             params: {
-                Roads: 4,
-                Villages: 2,
-                Cities: 0,
-                Warriors: 1
-            }
+                roads: 4,
+                villages: 2,
+                cities: 0,
+                warriors: 1
+            },
+            totalPoints: 0
         }, {
             id: 3,
             name: 'Bill',
             tag: 'newcomer',
             isTurn: false,
             params: {
-                Roads: 1,
-                Villages: 1,
-                Cities: 2,
-                Warriors: 4
-            }
+                roads: 1,
+                villages: 1,
+                cities: 2,
+                warriors: 4
+            },
+            totalPoints: 0
         }, {
             id: 4,
             name: 'Claire Larsen',
             tag: 'newcomer',
             isTurn: false,
             params: {
-                Roads: 6,
-                Villages: 1,
-                Cities: 0,
-                Warriors: 2
-            }
+                roads: 6,
+                villages: 1,
+                cities: 0,
+                warriors: 2
+            },
+            totalPoints: 0
         }
     ],
     rounds: 0,
@@ -95,6 +100,12 @@ export let userReducer = (state = defaultVal, action) => {
                 return _.cloneDeep(state);
             }
             break;
+        case CHANGE_PARAM:
+            {
+                state.users[state.currentPlayer].params[action.parameterIndex] = parseInt(action.value);
+                return _.cloneDeep(state);
+            }
+            break;
         default:
             {
                 console.log(
@@ -110,3 +121,4 @@ export let userReducer = (state = defaultVal, action) => {
 export const changeTurnAC = () => ({type: CHANGE_TURN, data: ''})
 export const incrementParamAC = (parameterIndex) => ({type: INCREMENT_PARAM, parameterIndex: parameterIndex})
 export const decrementParamAC = (parameterIndex) => ({type: DECREMENT_PARAM, parameterIndex: parameterIndex})
+export const changeParamAC = (value, parameterIndex) => ({type: CHANGE_PARAM, value:value, parameterIndex:parameterIndex})
