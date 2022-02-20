@@ -88,7 +88,6 @@ export let gameReducer = (state = defaultVal, action) => {
                     state.settings.pieces.splice(state.settings.pieces.indexOf(action.name), 1)
                 }
 
-                console.log(state.settings.pieces)
                 return {...state,
                 settings: {...state.settings}}
             }
@@ -117,8 +116,6 @@ export let gameReducer = (state = defaultVal, action) => {
                 state.users.push(newUser)
                 state.settings.newUserValue = ''
                 
-
-                console.log(state.users)
                 return _.cloneDeep(state);
             }
             break;

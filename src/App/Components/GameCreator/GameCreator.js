@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import User from '../User/User';
 
 
@@ -36,8 +36,8 @@ let GameCreator = (props) => {
         piecesRef[index] = useRef(null);
         return <div key={index}>
             <label>
-                <span>{item}</span>
                 <input ref={piecesRef[index]} type="checkbox" value={props.pieces[item]} onChange={changePiece} name={item} />
+                <span>{item}</span>
             </label>
         </div>
     })
@@ -60,7 +60,7 @@ let GameCreator = (props) => {
         <form onSubmit={createUser}>
             <label>
                 <span>3. Add players</span>
-                <input type="text" ref={newUserName} onChange={changeNewUserNameValue} required/>
+                <input type="text" ref={newUserName} value={props.newUserValue} onChange={changeNewUserNameValue} required/>
             </label>
             <button type='submit'>Add player</button>
         </form>

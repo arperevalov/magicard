@@ -6,7 +6,7 @@ let Nav = () => {
             <li><a href="/">Home</a></li>
             <li><a href="#">Search</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="/game">New Game</a></li>
+            <li><a href="/newgame">New Game</a></li>
         </ul>
     </nav>
 }

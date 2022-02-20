@@ -1,5 +1,5 @@
 let defaultVal = {
-    availablePieces: ['Turner', 'Scoreboard', 'PlayerStatus']
+    availablePieces: ['Turner', 'Scoreboard', 'Player Status', 'Dice', 'Timer', 'Stopwatch'],
 }
 
 export let gameSettingsReducer = (state = defaultVal, action) => {

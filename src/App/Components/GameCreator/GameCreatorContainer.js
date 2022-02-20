@@ -7,7 +7,8 @@ let mapStateToProps = (store) => {
         name: store.GamePage.settings.name,
         pieces: store.GamePage.settings.pieces,
         availablePieces: store.GameCreatorPage.availablePieces,
-        users: store.GamePage.users
+        users: store.GamePage.users,
+        newUserValue: store.GamePage.settings.newUserValue
     }
 }
 
