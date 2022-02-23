@@ -5,6 +5,8 @@ import Header from '../components/Header';
 
 
 let PlayerStatus = (props) => {
+    
+    
 
     let statRef = {}
 

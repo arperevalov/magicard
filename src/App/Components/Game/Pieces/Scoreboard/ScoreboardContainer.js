@@ -11,7 +11,7 @@ let mapStateToProps = (store) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
+export let mapDispatchToProps = (dispatch) => {
     return {
         params: (userParams)=>{
             return getSumOfParams(userParams)

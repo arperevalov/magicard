@@ -12,8 +12,7 @@ CREATE_USER = 'CREATE_USER'
 let defaultVal = {
     settings:{
         name: '',
-        pieces: [
-        ],
+        pieces: [],
         newUserValue: '',
     },
     users: [

@@ -68,7 +68,7 @@ let GameCreator = (props) => {
             </div>
         </div>
 
-        {/* <Link to="/game">START GAME</Link> */}
+        <Link to="/game">START GAME</Link>
     </div>
 }
 
