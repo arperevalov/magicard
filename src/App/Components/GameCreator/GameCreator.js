@@ -5,42 +5,38 @@ import User from '../User/User';
 
 let GameCreator = (props) => {
 
+    if (!props.availablePieces) return 'sorry, something is wrong with the state'
+
     let changeGameNameValue = () => {
         props.changeGameNameValue(nameRef.current.value)
     }
-
     let changePiece = (e) => {
         props.changePiece(e.target.name, e.target.checked)
     }
-
     let changeNewUserNameValue = () => {
         props.changeNewUserValue(newUserName.current.value)
     }
-
     let createUser = (e) => {
         e.preventDefault()
         props.createUser()
     }
-
     let startGame = (e) => {
         
     }
 
     let nameRef = React.createRef()
-
     let piecesRef = {}
-
     let newUserName = React.createRef()
 
     let availablePieces = props.availablePieces.map((item, index) => {
-        piecesRef[index] = useRef(null);
-        return <div key={index}>
-            <label>
-                <input ref={piecesRef[index]} type="checkbox" value={props.pieces[item]} onChange={changePiece} name={item} />
-                <span>{item}</span>
-            </label>
-        </div>
-    })
+            piecesRef[index] = useRef(null);
+            return <div key={index}>
+                <label>
+                    <input ref={piecesRef[index]} type="checkbox" onChange={changePiece} name={item} />
+                    <span>{item}</span>
+                </label>
+            </div>
+        })
 
     let users = props.users.map(i => {return (<User user={i} key={i.id}/>)})
 
@@ -67,12 +63,12 @@ let GameCreator = (props) => {
 
         <div>
             <span>Players</span>
-            <div>
+            <div className='players'>
                 {users}
             </div>
         </div>
 
-        <Link to="/game">START GAME</Link>
+        {/* <Link to="/game">START GAME</Link> */}
     </div>
 }
 

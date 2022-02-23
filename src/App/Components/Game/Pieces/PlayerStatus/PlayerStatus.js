@@ -27,7 +27,6 @@ let PlayerStatus = (props) => {
             .map((parameter, index) => {
 
                 statRef[index] = useRef(null);
-
                 return (
                     <li className='stat' key={index}>
                         <span className='stat__name'>{parameter}</span>
