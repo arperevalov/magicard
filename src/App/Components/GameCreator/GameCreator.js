@@ -5,7 +5,16 @@ import User from '../User/User';
 
 let GameCreator = (props) => {
 
-    if (!props.availablePieces) return 'sorry, something is wrong with the state'
+    const {
+        pieces,
+        name,
+        availablePieces = [],
+        users = [],
+        newUserValue
+    } = props
+
+
+    if (!availablePieces || availablePieces.length == 0) return 'sorry, something is wrong with pieces'
 
     let changeGameNameValue = () => {
         props.changeGameNameValue(nameRef.current.value)
@@ -20,15 +29,12 @@ let GameCreator = (props) => {
         e.preventDefault()
         props.createUser()
     }
-    let startGame = (e) => {
-        
-    }
 
     let nameRef = React.createRef()
     let piecesRef = {}
     let newUserName = React.createRef()
 
-    let availablePieces = props.availablePieces.map((item, index) => {
+    let availablePiecesShow = availablePieces.map((item, index) => {
             piecesRef[index] = useRef(null);
             return <div key={index}>
                 <label>
@@ -38,25 +44,25 @@ let GameCreator = (props) => {
             </div>
         })
 
-    let users = props.users.map(i => {return (<User user={i} key={i.id}/>)})
+    let usersShow = users.map(i => {return (<User user={i} key={i.id}/>)})
 
     return <div className='game'>
         <h1 className='h1'>Start New Game</h1>
         
         <label>
             <span>1. Name the game</span>
-            <input type="text" ref={nameRef} value={props.name} onChange={changeGameNameValue} required/>
+            <input type="text" ref={nameRef} value={name} onChange={changeGameNameValue} required/>
         </label>
         
         <div>
             <span>2. Choose pieces for the game</span>
-            {availablePieces}
+            {availablePiecesShow}
         </div>
         
         <form onSubmit={createUser}>
             <label>
                 <span>3. Add players</span>
-                <input type="text" ref={newUserName} value={props.newUserValue} onChange={changeNewUserNameValue} required/>
+                <input type="text" ref={newUserName} value={newUserValue} onChange={changeNewUserNameValue} required/>
             </label>
             <button type='submit'>Add player</button>
         </form>
@@ -64,7 +70,7 @@ let GameCreator = (props) => {
         <div>
             <span>Players</span>
             <div className='players'>
-                {users}
+                {usersShow}
             </div>
         </div>
 

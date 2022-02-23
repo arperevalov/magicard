@@ -4,7 +4,7 @@ import GameCreator from './GameCreator'
 import { MemoryRouter } from 'react-router-dom';
 
 let data = {
-  availablePieces: ['Mocker', 'Bram Stocker'],
+  availablePieces: ['Mocker', 'Bramstocker'],
   users: [{
     id: 1,
     name: "James Belascos",
@@ -19,9 +19,11 @@ let data = {
 
 describe('GameCreator Component', ()=> {
 
-  test("if no data, don't render", () => {
-    render(<GameCreator/>);
-    expect(screen.getByText(/sorry, something is wrong with the state/gi)).toBeInTheDocument();
+  test("if no data, renders", () => {
+    render(<MemoryRouter>
+      <GameCreator/>
+    </MemoryRouter>);
+    expect(screen.getByText(/sorry, something is wrong with pieces/gi)).toBeInTheDocument();
   });
 
   test('if no players, renders', () => {
@@ -29,7 +31,7 @@ describe('GameCreator Component', ()=> {
       <GameCreator availablePieces={data.availablePieces} users={[]}/>
     </MemoryRouter>);
     expect(screen.getByText(/mocker/gi)).toBeInTheDocument();
-    expect(screen.getByText(/Bram Stocker/gi)).toBeInTheDocument();
+    expect(screen.getByText(/Bramstocker/gi)).toBeInTheDocument();
   }) 
   
   test('renders with all data', () => {

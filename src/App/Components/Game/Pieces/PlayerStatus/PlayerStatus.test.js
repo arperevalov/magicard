@@ -30,6 +30,6 @@ describe('PlayerStatus Component', ()=> {
     render(<PlayerStatus users={data.users} currentPlayer={data.currentPlayer}/>);
     expect(screen.getByText(/James Belascos/gi)).toBeInTheDocument();
     expect(screen.getByText(/roads/gi)).toBeInTheDocument();
-    expect(document.querySelector('input').value).toBe('2288');
+    expect(parseInt(document.querySelector('input').value)).toBe(2288);
   }) 
 })

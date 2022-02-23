@@ -11,8 +11,32 @@ import TurnerContainer from './Pieces/Turner/TurnerContainer';
 
 
 let Game = (props) => {
+
+    const {
+        pieces=[],
+        gameName
+    } = props
+
+    let components = pieces.map(i => {
+            if(i == 'Player Status') {
+                return <PlayerStatusContainer />
+            } else if (i == 'Scoreboard') {
+                return <ScoreboardContainer/>
+            } else if (i == 'Turner') {
+                return <TurnerContainer/>
+            } else if (i == 'Stopwatch') {
+                return <Stopwatch/>
+            } else if (i == 'Timer') {
+                return <Timer/>
+            } else if (i == 'Helpers') {
+                return <Helpers/>
+            } else if (i == 'Dice') {
+                return <Dice/>
+            }
+        })
+
     return <div className='game'>
-        <h1 className='h1'>Bill’s Birthday!</h1>
+        <h1 className='h1'>{gameName}</h1>
         <div className='gameControls'>
             <button className='gameControls__pauseGame h2'>
                 <svg
@@ -38,17 +62,7 @@ let Game = (props) => {
                 Helpers</a>
         </div>
         <div className='pieces'>
-            <PlayerStatusContainer/>
-            <div className='line'>
-            <TurnerContainer/>
-            <Dice/>
-            </div>
-            <ScoreboardContainer/>
-            <div className='line'>
-            <Timer/>
-            <Stopwatch/>
-            </div>
-            <Helpers/>
+        {components}
             
         </div>
     </div>
