@@ -58,14 +58,12 @@ let GameCreator = (props) => {
             <span>2. Choose pieces for the game</span>
             {availablePiecesShow}
         </div>
-        
-        <form onSubmit={createUser}>
+
             <label>
                 <span>3. Add players</span>
                 <input type="text" ref={newUserName} value={newUserValue} onChange={changeNewUserNameValue} required/>
             </label>
-            <button type='submit'>Add player</button>
-        </form>
+            <button type='submit' onClick={createUser}>Add player</button>
 
         <div>
             <span>Players</span>

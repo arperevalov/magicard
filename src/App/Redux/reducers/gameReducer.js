@@ -12,10 +12,55 @@ CREATE_USER = 'CREATE_USER'
 let defaultVal = {
     settings:{
         name: '',
-        pieces: [],
+        pieces: ['Turner', 'Scoreboard', 'Player Status'],
         newUserValue: '',
     },
     users: [
+        {
+            id: 1,
+            name: 'George Mills',
+            tag: false,
+            isTurn: true,
+            params: {
+                roads: 2,
+                villages: 2,
+                cities: 1,
+                warriors: 2
+            }
+        }, {
+            id: 2,
+            name: 'Jennifer Carpenter',
+            tag: false,
+            isTurn: false,
+            params: {
+                roads: 4,
+                villages: 2,
+                cities: 0,
+                warriors: 1
+            }
+        }, {
+            id: 3,
+            name: 'Bill',
+            tag: 'newcomer',
+            isTurn: false,
+            params: {
+                roads: 1,
+                villages: 1,
+                cities: 2,
+                warriors: 4
+            }
+        }, {
+            id: 4,
+            name: 'Claire Larsen',
+            tag: 'newcomer',
+            isTurn: false,
+            params: {
+                roads: 6,
+                villages: 1,
+                cities: 0,
+                warriors: 2
+            }
+        }
     ],
     rounds: 0,
     turns: 0,
@@ -44,20 +89,6 @@ export let gameReducer = (state = defaultVal, action) => {
                 }
 
                 return {...state};
-            }
-            break;
-        case INCREMENT_PARAM:
-            {
-                state.users[state.currentPlayer].params[action.parameterIndex] ++
-                return _.cloneDeep(state);
-            }
-            break;
-        case DECREMENT_PARAM:
-            {
-                if (state.users[state.currentPlayer].params[action.parameterIndex] !== 0) {
-                    state.users[state.currentPlayer].params[action.parameterIndex] --
-                }
-                return _.cloneDeep(state);
             }
             break;
         case CHANGE_PARAM:

@@ -19,19 +19,19 @@ let Game = (props) => {
 
     let components = pieces.map(i => {
             if(i == 'Player Status') {
-                return <PlayerStatusContainer />
+                return <PlayerStatusContainer key={i} />
             } else if (i == 'Scoreboard') {
-                return <ScoreboardContainer/>
+                return <ScoreboardContainer key={i}/>
             } else if (i == 'Turner') {
-                return <TurnerContainer/>
+                return <TurnerContainer key={i}/>
             } else if (i == 'Stopwatch') {
-                return <Stopwatch/>
+                return <Stopwatch key={i}/>
             } else if (i == 'Timer') {
-                return <Timer/>
+                return <Timer key={i}/>
             } else if (i == 'Helpers') {
-                return <Helpers/>
+                return <Helpers key={i}/>
             } else if (i == 'Dice') {
-                return <Dice/>
+                return <Dice key={i}/>
             }
         })
 

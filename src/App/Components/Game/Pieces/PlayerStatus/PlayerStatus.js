@@ -10,12 +10,16 @@ let PlayerStatus = (props) => {
 
     let statRef = {}
 
-    let incrementParam = (event) => {
-        props.incrementUserParam(event.target.attributes.parameterindex.value);
+    let incrementParam = (e, parameterIndex) => {
+        parseInt(statRef[e].current.value ++)
+        props.changeUserParam( parseInt(statRef[e].current.value), parameterIndex)
     }
 
-    let decrementParam = (event) => {
-        props.decrementUserParam(event.target.attributes.parameterindex.value);
+    let decrementParam = (e, parameterIndex) => {
+        if (parseInt(statRef[e].current.value) > 0) {
+            parseInt(statRef[e].current.value --)
+            props.changeUserParam( parseInt(statRef[e].current.value), parameterIndex)
+        }
     }
 
     let changeParam = (e, parameterIndex) =>{
@@ -33,9 +37,9 @@ let PlayerStatus = (props) => {
                     <li className='stat' key={index}>
                         <span className='stat__name'>{parameter}</span>
                         <div className='stat__controls'>
-                            <button className='stat__control' onClick={decrementParam} parameterindex={parameter}>–</button>
-                            <input className='stat__value' type='number' value={params[parameter]} name={index} ref={statRef[index]} onChange={() => {changeParam(index, parameter)}} />
-                            <button className='stat__control' onClick={incrementParam} parameterindex={parameter}>+</button>
+                            <button className='stat__control' onClick={()=>{decrementParam(index,parameter)}}>–</button>
+                            <input className='stat__value' type='number' min='0' value={params[parameter]} name={index} ref={statRef[index]} onChange={() => {changeParam(index, parameter)}} id={parameter}/>
+                            <button className='stat__control' onClick={()=>{incrementParam(index,parameter)}}>+</button>
                         </div>
                     </li>
                 )
